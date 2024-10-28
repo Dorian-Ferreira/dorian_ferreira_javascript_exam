@@ -25,7 +25,7 @@ const header = `<nav class="navbar navbar-expand-lg bg-body-tertiary">
 					<a class="nav-link" href="/produits">Produits</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="/panier">Panier</a>
+					<a class="nav-link" href="/panier"><i class="fa-solid fa-cart-shopping"></i></a>
 				</li>
 			</ul>
 		</div>

@@ -35,11 +35,12 @@ function display(data) {
 				<div class="d-flex justify-content-evenly align-items-center">
 					<div class="card-text">${productData.prix}</div>
 					<div class="card-text">${element.quantity}</div>
-					<button class="btn btn-danger" onclick="retirerPanier(${productData.id}, 1)"><i class="fa-solid fa-minus fa-xl"></i></button>
+					<button class="btn btn-danger" onclick="editPanier(${productData.id}, true)"><i class="fa-solid fa-minus fa-xl"></i></button>
+					<button class="btn btn-success" onclick="editPanier(${productData.id}, false)"><i class="fa-solid fa-plus fa-xl"></i></button>
 					
 				</div>
 				<a href="/produit/${productData.id}" class="btn btn-primary mt-2">En savoir plus</a>
-				<button onclick="retirerPanier(${productData.id})" class="btn btn-danger mt-2"><i class="fa-solid fa-trash"></i></button>
+				<button onclick="editPanier(${productData.id})" class="btn btn-danger mt-2"><i class="fa-solid fa-trash"></i></button>
 			</div>
 		</div>
 		`;
@@ -49,11 +50,11 @@ function display(data) {
     calculPrixTotal();
 }
 
-function retirerPanier(produitId, nb) {
+function editPanier(produitId, remove) {
     let produit = panier.produits.find((elem) => elem.id === produitId);
     if (produit) {
-        if (nb) {
-            produit.quantity--;
+        if (remove != null) {
+            produit.quantity = produit.quantity + (remove === true ? -1 : 1);
         } else {
             produit.quantity = 0;
         }
@@ -67,8 +68,6 @@ function retirerPanier(produitId, nb) {
     if (produit.quantity <= 0) {
         document.querySelector('#card-' + produit.id).remove();
         alert('Le produit a été retiré du panier.');
-    } else {
-        alert('La quantité de ce produit a été modifié.');
     }
     display(products);
     calculPrixTotal();
