@@ -1,6 +1,7 @@
 const productsDiv = document.querySelector('#products');
 const main = document.querySelector('main');
 const prixTotal = document.querySelector('#prixTotal');
+const validation = document.querySelector('#validation');
 
 const panierLocalStorage = localStorage.getItem('panier');
 
@@ -16,9 +17,11 @@ fetch('/data/produits')
 function display(data) {
     if (!panierLocalStorage || panier.produits.length === 0) {
         productsDiv.innerHTML = 'Votre panier est vide!';
+        validation.innerHTML = '';
         return;
     }
     productsDiv.innerHTML = '';
+    validation.innerHTML = `<button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#confirmCommand">Valider la commande</button>`;
 
     products = data;
 
@@ -93,4 +96,56 @@ function calculPrixTotal() {
             ) * 100
         ) / 100
     } €`;
+}
+
+const modal = new bootstrap.Modal(document.querySelector(".modal"));
+const formCommande = document.querySelector("form");
+
+const emailInput = document.querySelector("#emailInput");
+const nameInput = document.querySelector("#nameInput");
+const adressInput = document.querySelector("#adressInput");
+const consentInput = document.querySelector("#consent");
+
+if (formCommande) {
+    formCommande.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const email = emailInput.value;
+        const name = nameInput.value;
+        const adress = adressInput.value;
+        const consent = consentInput.value;
+
+        emailInput.classList.remove("is-invalid");
+        if(!email) {
+            emailInput.classList.add("is-invalid");
+        }
+        
+        nameInput.classList.remove("is-invalid");
+        if(!name) {
+            nameInput.classList.add("is-invalid");
+        }
+        
+        adressInput.classList.remove("is-invalid");
+        if(!adress) {
+            adressInput.classList.add("is-invalid");
+        }
+        
+        consentInput.classList.remove("is-invalid");
+        if(!consent) {
+            consentInput.classList.add("is-invalid");
+        }
+
+        if(!email || !name || !adress || !consent) {
+            return;
+        }
+
+        panier.user = {
+            email: email,
+            name: name,
+            adress: adress,
+        };
+
+        localStorage.setItem('panier', JSON.stringify(panier));
+        modal.hide();
+        window.location.href = "/commande/validation"
+    });
 }

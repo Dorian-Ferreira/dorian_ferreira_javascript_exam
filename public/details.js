@@ -18,6 +18,9 @@ fetch('/data/produits')
 
 function displayData(data) {
     element = data;
+    
+    document.title = element.nom_produit;
+
     title.innerHTML = element.nom_produit;
     image.src = '../' + element.image;
     image.alt = 'Image pour ' + element.nom_produit;

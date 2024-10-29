@@ -19,7 +19,7 @@
 
         <link rel="stylesheet" href="style.css" />
 
-        <title>Appareils Photo</title>
+        <title>Panier</title>
     </head>
     <body>
         <header></header>
@@ -27,6 +27,47 @@
             <h1>Mon Panier</h1>
             <div id="products" class="d-flex flex-wrap gap-5"></div>
             <div id="prixTotal" class=""></div>
+            <div id="validation"></div>
+            <div class="modal" tabindex="-1" id="confirmCommand">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title">Confirmer la commande</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="mb-3">
+                              <label for="emailInput" class="form-label">Email</label>
+                              <input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp" required>
+                              <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                              <div id="emailError" class="invalid-feedback">Renseignez un email</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="nameInput" class="form-label">Nom</label>
+                                <input type="text" class="form-control" id="nameInput" required>
+                                <div id="nameError" class="invalid-feedback">Renseignez votre nom</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="adressInput" class="form-label">Adresse</label>
+                                <input type="text" class="form-control" id="adressInput" required>
+                                <div id="adressError" class="invalid-feedback">Renseignez votre adresse</div>
+                            </div>
+                            <div class="mb-3 form-check">
+                              <input type="checkbox" class="form-check-input" id="consent" required>
+                              <label class="form-check-label" for="consent">Consentement à l'envoi de données</label>
+                              <div id="consentError" class="invalid-feedback">Consent</div>
+                            </div>
+                            <button type="submit" class="btn btn-primary" id="submit">Valider</button>
+                          </form>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
         </main>
         <footer></footer>
 

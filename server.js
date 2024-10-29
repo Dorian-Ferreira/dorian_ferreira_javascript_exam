@@ -29,6 +29,10 @@ app.get('/panier', (req, res) => {
     res.sendFile(path.join(__dirname, 'public/panier.html'));
 });
 
+app.get('/commande/validation', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public/commande.html'));
+});
+
 app.get('/data/produits', (req, res) => {
     res.send(productsData);
 });
