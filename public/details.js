@@ -40,7 +40,7 @@ function displayData(data) {
 		<li class="list-group-item">${element.caracteristiques.écran}</li>
 	</ul>
 	<p>Prix : ${element.prix}</p>
-	<button onclick="ajouterPanier()" class="btn btn-primary">Ajouter au panier</button>
+	<button onclick="ajouterPanier()" class="btn btn-success">Ajouter au panier</button>
 	`;
 }
 

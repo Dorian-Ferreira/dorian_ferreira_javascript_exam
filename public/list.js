@@ -26,7 +26,7 @@ function displayData(data) {
 			</div>
             <div class="card-footer d-flex flex-column">
 				<a href="/produit/${element.id}" class="btn btn-primary">En savoir plus</a>
-				<button onclick="ajouterPanier(${element.id})" class="btn btn-primary mt-2">Ajouter au panier</button>
+				<button onclick="ajouterPanier(${element.id})" class="btn btn-success mt-2">Ajouter au panier</button>
 			</div>
 		</div>
 		`;

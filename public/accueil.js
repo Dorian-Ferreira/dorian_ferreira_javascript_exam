@@ -16,8 +16,10 @@ function displayData(data) {
 				<h5 class="card-title text-center">${element.nom_produit}</h5>
 				<p class="card-text text-center">${element.descriptif}</p>
 				<p class="card-text text-center">${element.prix}</p>
+			</div>
+            <div class="card-footer d-flex flex-column">
 				<a href="/produit/${element.id}" class="btn btn-primary">En savoir plus</a>
-				<button onclick="ajouterPanier(${element.id})" class="btn btn-primary mt-2">Ajouter au panier</button>
+				<button onclick="ajouterPanier(${element.id})" class="btn btn-success mt-2">Ajouter au panier</button>
 			</div>
 		</div>
 		`;
