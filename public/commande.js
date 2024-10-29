@@ -37,8 +37,10 @@ function display(data) {
 					<div class="card-text">${productData.prix}</div>
 					<div class="card-text">${element.quantity}</div>
 				</div>
-				<a href="/produit/${productData.id}" class="btn btn-primary mt-2">En savoir plus</a>
 			</div>
+            <div class="card-footer d-flex flex-column">
+                <a href="/produit/${productData.id}" class="btn btn-primary mt-2">En savoir plus</a>
+            </div>
 		</div>
 		`;
 

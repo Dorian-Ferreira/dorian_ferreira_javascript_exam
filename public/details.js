@@ -1,5 +1,6 @@
 const title = document.querySelector('h1');
-const image = document.querySelector('img');
+const titleModal = document.querySelector('h2');
+const images = document.querySelectorAll('img');
 const details = document.querySelector('#details');
 
 let element;
@@ -22,8 +23,13 @@ function displayData(data) {
     document.title = element.nom_produit;
 
     title.innerHTML = element.nom_produit;
-    image.src = '../' + element.image;
-    image.alt = 'Image pour ' + element.nom_produit;
+    titleModal.innerHTML = element.nom_produit;
+
+    images.forEach((image) => {
+        image.src = '../' + element.image;
+        image.alt = 'Image pour ' + element.nom_produit;
+    });
+
     details.innerHTML = `
 	<p>${element.descriptif}</p>
 	<span>Caractéristiques : </span>

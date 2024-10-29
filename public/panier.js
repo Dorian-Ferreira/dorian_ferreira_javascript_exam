@@ -40,8 +40,9 @@ function display(data) {
 					<div class="card-text">${element.quantity}</div>
 					<button class="btn btn-danger" onclick="editPanier(${productData.id}, true)"><i class="fa-solid fa-minus fa-xl"></i></button>
 					<button class="btn btn-success" onclick="editPanier(${productData.id}, false)"><i class="fa-solid fa-plus fa-xl"></i></button>
-					
 				</div>
+			</div>
+            <div class="card-footer d-flex flex-column">
 				<a href="/produit/${productData.id}" class="btn btn-primary mt-2">En savoir plus</a>
 				<button onclick="editPanier(${productData.id})" class="btn btn-danger mt-2"><i class="fa-solid fa-trash"></i></button>
 			</div>
