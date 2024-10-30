@@ -11,7 +11,7 @@ const header = `<nav class="navbar navbar-expand-lg bg-body-tertiary">
 			aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
-		<div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNav">
+		<div class="collapse navbar-collapse" id="navbarNav">
 			<ul class="navbar-nav">
 				<li class="nav-item">
 					<a

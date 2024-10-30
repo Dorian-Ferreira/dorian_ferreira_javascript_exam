@@ -86,16 +86,8 @@ function calculPrixTotal() {
 
     prixTotal.innerHTML = `Prix Total : ${
         Math.round(
-            panier.produits.reduce(
-                (sum, val) =>
-                    sum +
-                    parseFloat(
-                        products.find((elem) => elem.id === val.id).prix
-                    ) *
-                        val.quantity,
-                0
-            ) * 100
-        ) / 100
+            panier.produits.reduce((sum, val) => sum + parseFloat(products.find((elem) => elem.id === val.id).prix) * val.quantity, 0)
+            * 100) / 100
     } €`;
 }
 

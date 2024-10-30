@@ -94,6 +94,7 @@ priceInput.forEach((input) => {
                 range.style.right = 100 - (maxPrice / rangeInput[1].max) * 100 + "%";
             }
         }
+        
         priceInput[0].max = parseInt(priceInput[1].value) - priceGap;
         priceInput[1].min = parseInt(priceInput[0].value) + priceGap;
 
